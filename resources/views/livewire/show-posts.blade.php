@@ -6,5 +6,5 @@
         </h2>
     </x-slot>
     <h1>Hola amigos</h1>
-    
+    {{$posts}}
 </div>
