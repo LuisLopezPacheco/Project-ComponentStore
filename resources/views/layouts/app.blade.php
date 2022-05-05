@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+        <link rel="stylesheet" href="{{asset('vendor/fontawesome-free-6.1.1-web/css/all.min.css')}}">
         @livewireStyles
 
         <!-- Scripts -->

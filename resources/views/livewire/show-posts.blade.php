@@ -6,7 +6,6 @@
         </h2>
     </x-slot>
     <h1>Hola amigos</h1>
-
     <x-table>
         <div class="px-6 py-4">
             {{-- <input type="text" wire:model="search"> --}}
@@ -16,9 +15,39 @@
         @if($posts->count())
         <table class="rounded-t-lg m-5 w-5/6 mx-auto text-gray-100 bg-gradient-to-l from-indigo-500 to-indigo-800">
             <tr class="text-left border-b-2 border-indigo-300">
-                <th class="px-6 py-4">ID</th>
-                <th class="px-6 py-4">Title</th>
-                <th class="px-6 py-4">Content</th></th>
+                <th class="cursor-pointer px-6 py-4" wire:click="order('id')">ID
+                    @if($sort == 'id')
+                    @if ($direction == 'asc')
+                        <i class="fa-solid fa-arrow-down-short-wide float-right mt-1"></i>
+                    @else
+                        <i class="fa-solid fa-arrow-down-wide-short float-right mt-1"></i>
+                    @endif
+                @else
+                    <i class="fas fa-sort float-right mt-1"></i>
+                @endif
+                </th>
+                <th class="cursor-pointer px-6 py-4" wire:click="order('title')">Title
+                    @if($sort == 'title')
+                        @if ($direction == 'asc')
+                            <i class="fa-solid fa-arrow-down-a-z float-right mt-1"></i>
+                        @else
+                            <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                        @endif
+                    @else
+                        <i class="fas fa-sort float-right mt-1"></i>
+                    @endif
+                </th>
+                <th class="cursor-pointer px-6 py-4" wire:click="order('content')">Content
+                    @if($sort == 'content')
+                        @if ($direction == 'asc')
+                            <i class="fa-solid fa-arrow-down-a-z float-right mt-1"></i>
+                        @else
+                            <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                        @endif
+                    @else
+                        <i class="fas fa-sort float-right mt-1"></i>
+                    @endif
+                </th>
                 <th class="px-6 py-4">Acciones</th>
             </tr>
             <tbody class="border-b border-indigo-400">
