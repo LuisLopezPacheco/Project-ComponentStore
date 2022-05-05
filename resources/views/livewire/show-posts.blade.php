@@ -7,15 +7,16 @@
     </x-slot>
     <h1>Hola amigos</h1>
     <x-table>
-        <div class="px-6 py-4">
+        <div class="px-6 py-4 flex item-center">
             {{-- <input type="text" wire:model="search"> --}}
-            <x-jet-input class="w-full" placeholder="Buscar..." type="text" wire:model="search"></x-jet-input>
+            <x-jet-input class="w-full mr-1" placeholder="Buscar..." type="text" wire:model="search"></x-jet-input>
+            @livewire('create-post')
         </div>
         <p class="text-lg text-center font-bold m-5">Componentes</p>
         @if($posts->count())
         <table class="rounded-t-lg m-5 w-5/6 mx-auto text-gray-100 bg-gradient-to-l from-indigo-500 to-indigo-800">
             <tr class="text-left border-b-2 border-indigo-300">
-                <th class="cursor-pointer px-6 py-4" wire:click="order('id')">ID
+                <th class="cursor-pointer px-6 py-4 w-24" wire:click="order('id')">ID
                     @if($sort == 'id')
                     @if ($direction == 'asc')
                         <i class="fa-solid fa-arrow-down-short-wide float-right mt-1"></i>
