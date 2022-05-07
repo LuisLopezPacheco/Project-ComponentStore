@@ -5,7 +5,6 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <h1>Hola amigos</h1>
     <x-table>
         <div class="px-6 py-4 flex item-center">
             {{-- <input type="text" wire:model="search"> --}}

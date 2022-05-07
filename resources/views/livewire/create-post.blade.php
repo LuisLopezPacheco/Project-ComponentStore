@@ -10,12 +10,20 @@
         <x-slot name="content">
             <div class="mb-4">
                 <x-jet-label value="Título del post"></x-jet-label>
-                <x-jet-input type="text" class="w-full" wire:model.defer="title"></x-jet-input>
-                {{$title}}
+                {{--difer hacer que no se renderice con cada tecla presionada  --}}
+                {{-- <x-jet-input type="text" class="w-full" wire:model.difer="title"></x-jet-input>     --}}
+                <x-jet-input type="text" class="w-full" wire:model="title"></x-jet-input>
+                {{-- @error('title')
+                    <span>
+                        {{$message}}
+                    </span>
+                @enderror --}}
+                <x-jet-input-error for="title"/>
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del post"></x-jet-label>
                 <textarea wire:model.defer="content" class="form-control w-full" name="" id="" cols="30" rows="6"></textarea>
+                <x-jet-input-error for="content"/>
             </div>
         </x-slot>
         <x-slot name="footer">

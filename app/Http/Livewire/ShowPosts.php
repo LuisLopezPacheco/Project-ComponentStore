@@ -6,6 +6,10 @@ use Livewire\Component;
 use App\Models\Post;
 class ShowPosts extends Component
 {
+    //Escuchar el evento
+    /* protected $listeners = ['renders' => 'render']; */
+    protected $listeners = ['render']; //Cuando tienen el mismo nombre solo se coloca el nombre de la función
+
     public $search;
     public $sort = "id";
     public $direction = "desc";
