@@ -56,7 +56,11 @@
                     <td class="px-6 py-4">{{$post->id}}</td>
                     <td class="px-6 py-4">{{$post->title}}</td>
                     <td class="px-6 py-4">{{$post->content}}</td>
-                    <td class="px-6 py-4">Male</td>
+                    {{-- Componentes de anidamiento --}}
+                    <td class="px-6 py-4">
+                        <button wire:click="edit(   {{$post->id}})" class="border-grey-light border hover:bg-gray-100 p-3 text-blue-400 hover:text-blue-600 hover:font-medium cursor-pointer">Editar</button>            
+                        {{-- @livewire('edit-post', ['post' => $post], key($post->id)) --}}
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
