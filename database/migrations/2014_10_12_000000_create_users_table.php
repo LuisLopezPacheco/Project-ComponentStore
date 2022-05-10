@@ -11,11 +11,13 @@ return new class extends Migration
      *
      * @return void
      */
+    //'pais' => 'required|in:Mexico,Estados Unidos',
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('rol',['Admin','Proveedor']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -36,7 +36,7 @@
             </div>
 
             <div>
-                <input type="file" wire:model="image" id="{{$identificador}}" >
+                <input type="file" wire:model="image" id="{{$identificador}}">
                 <x-jet-input-error for="image"/>
             </div>
 

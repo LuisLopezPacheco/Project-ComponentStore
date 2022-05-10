@@ -35,7 +35,7 @@ class CreatePost extends Component
         Post::create([
             'title' => $this->title,
             'content' => $this->content,
-            'image' => $image
+            'image' => $this->image
         ]);
 
         $this->reset(['open','title','content', 'image']);
