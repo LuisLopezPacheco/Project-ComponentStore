@@ -4,16 +4,20 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreatePost extends Component
 {
+    use WithFileUploads;
+
     protected $rules = [
         'title' => 'required|max:100',
         'content' => 'required|min:2',
+        'image' => 'required|image|max:2048'
     ];
 
     public $open = false;
-    public $title, $content;
+    public $title, $content, $image;
 
     public function update($propertyName){
         $this->validateOnly($propertyName);
@@ -24,7 +28,8 @@ class CreatePost extends Component
 
         Post::create([
             'title' => $this->title,
-            'content' => $this->content
+            'content' => $this->content,
+        
         ]);
 
         $this->reset(['open','title','content']);
