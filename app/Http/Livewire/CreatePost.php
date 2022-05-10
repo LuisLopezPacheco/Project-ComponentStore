@@ -17,22 +17,30 @@ class CreatePost extends Component
     ];
 
     public $open = false;
-    public $title, $content, $image;
+    public $title, $content, $image, $identificador;
 
     public function update($propertyName){
         $this->validateOnly($propertyName);
     }
 
+    public function mount(){
+        $this->identificador = rand();
+    }
+
     public function save(){
         $this->validate();
+
+        $image = $this->image->store('posts');
 
         Post::create([
             'title' => $this->title,
             'content' => $this->content,
-        
+            'image' => $image
         ]);
 
-        $this->reset(['open','title','content']);
+        $this->reset(['open','title','content', 'image']);
+
+        $this->identificador = rand();
 
         //Emitir eventos
         $this->emitTo('show-posts','render');  //solo un componente escucha el evento
@@ -43,4 +51,5 @@ class CreatePost extends Component
     {
         return view('livewire.create-post');
     }
+
 }

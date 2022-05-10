@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(),
             'content' => $this->faker->text(),
             /* Concatenar para personalizar como se  almacenará */
-            'image' => 'posts/'. $this->faker->image('public/storage/posts', 640, 480, null, false),
+            'image' => $this->faker->image('public/storage/posts', 640, 480, null, false),
         ];
     }
 }
