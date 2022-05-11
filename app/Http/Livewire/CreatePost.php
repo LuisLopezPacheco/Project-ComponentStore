@@ -35,12 +35,12 @@ class CreatePost extends Component
         Post::create([
             'title' => $this->title,
             'content' => $this->content,
-            'image' => $this->image
-        ]);
-
+            'image' => $this->image->()
+        ]);          
         $this->reset(['open','title','content', 'image']);
-
+            
         $this->identificador = rand();
+        
 
         //Emitir eventos
         $this->emitTo('show-posts','render');  //solo un componente escucha el evento
