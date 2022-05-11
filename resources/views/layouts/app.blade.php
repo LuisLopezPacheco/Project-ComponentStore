@@ -18,6 +18,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.all.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -44,6 +45,8 @@
 
         @livewireScripts
 
+        @stack('js')
+
         <script>
             Livewire.on('alert',function(message){
                 Swal.fire(
@@ -51,7 +54,7 @@
                 message,
                 'success'
                 )
-            })
+            });
         </script>
 
     </body>
